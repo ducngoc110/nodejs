@@ -12,7 +12,8 @@
                             <span class="btn-file">
                                 <span class="fileinput-new"><i class="material-icons">&#xE2C6;</i></span>
                                 <span class="fileinput-exists"><i class="material-icons">&#xE86A;</i></span>
-                                <input type="file" name="avatar" id="user_edit_avatar_control">
+                                <input type="file" name="chosse-avatar" id="user_edit_avatar_control">
+                                <input type="hidden" name="avatar" value="{{#if user.meta.avatar}}{{user.meta.avatar}}{{/if}}">
                             </span>
                             <a href="#" class="btn-file fileinput-exists" data-dismiss="fileinput"><i class="material-icons">&#xE5CD;</i></a>
                         </div>
@@ -106,7 +107,7 @@
                 <div class="md-card-content">
                     <h3 class="heading_c uk-margin-bottom">Other settings</h3>
                     <div class="uk-form-row">
-                        <input type="checkbox" name="status" checked data-switchery id="user_edit_active" />
+                        <input type="checkbox" name="status" data-switchery id="user_edit_active" {{#ifCondi user.status '==' 'on' }}checked{{/ifCondi}} />
                         <label for="user_edit_active" class="inline-label">User Active</label>
                     </div>
                     <hr class="md-hr">
