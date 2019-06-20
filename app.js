@@ -18,11 +18,11 @@ var usersRouter = require('./routes/backend/users');
 
 var app = express();
 
-// mongoose.connect(database.dbStr, { useNewUrlParser: true });
+mongoose.connect(database.dbStr, { useNewUrlParser: true });
 
 // view engine setup
 var hbsConfig = expHbs.create({
-    helpers : require('./helpers/handlebars').helpers,
+    helpers: require('./helpers/handlebars').helpers,
     layoutsDir: path.join(__dirname, '/templates/' + settings.defaultTemplate + '/layouts'),
     defaultLayout: path.join(__dirname, 'templates/' + settings.defaultTemplate + '/layouts/layout'),
     partialsDir: path.join(__dirname, '/templates/' + settings.defaultTemplate + '/partials'),
@@ -40,8 +40,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-    secret           : settings.secretKey,
-    resave           : false,
+    secret: settings.secretKey,
+    resave: false,
     saveUninitialized: false
 }));
 app.use(flash());

@@ -11,9 +11,7 @@ var userSchema = new Schema({
         name: String,
         avatar: String,
         birthday: String,
-        more: String,
-        address: String,
-        phone: String
+        more: String
     }
 });
 
