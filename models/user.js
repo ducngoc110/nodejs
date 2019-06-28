@@ -7,6 +7,7 @@ var userSchema = new Schema({
     password: String,
     status: String,
     roles: String,
+    date: {type: Date, default: Date.now },
     meta: {
         name: String,
         avatar: String,

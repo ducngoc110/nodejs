@@ -1,0 +1,30 @@
+{{# each users }}
+    <tr>
+        <td class="uk-text-center">
+            <input type="checkbox" class="atl-checkbox-child-js" />
+        </td>
+        <td class="uk-text-center">
+            <img class="md-user-image" style="height: 34px;" src="{{#if meta.avatar}}/uploads/user/{{meta.avatar}}{{else}}/assets/backend/img/blank.png{{/if}}">
+        </td>
+        <td>
+            {{ email }}
+        </td>
+        <td class="uk-text-center">
+            {{#ifCondi status '==' 'on' }}<span class="uk-badge">Active</span>{{/ifCondi}}
+            {{#ifCondi status '==' 'off' }}<span class="uk-badge uk-badge-danger">Deactive</span>{{/ifCondi}}
+        </td>
+        <td class="uk-text-center">
+            {{#each ../settings.listRoles }}
+                {{#ifCondi ../roles '==' @key }}<span class="uk-badge{{#ifCondi @key '==' 'admin' }} uk-badge-danger{{/ifCondi}}">{{../this}}</span>{{/ifCondi}}
+            {{/each }}
+        </td>
+        <td class="uk-text-center">
+            <a href="/user-edit/{{ _id }}">
+                <i class="md-icon material-icons">edit</i>
+            </a>
+            <a href="#" class="atl-manage-user-delete" data-id="{{ _id }}">
+                <i class="md-icon material-icons">delete</i>
+            </a>
+        </td>
+    </tr>
+{{/each }}

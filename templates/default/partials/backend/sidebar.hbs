@@ -7,7 +7,7 @@
     </div>
     <div class="menu_section">
         <ul>
-                <li {{#ifCondi actionTab "==" 'dashboard'}}class="current_section"{{/ifCondi}} title="Dashboard">
+            <li {{#ifCondi actionTab '==' 'dashboard'}}class="current_section"{{/ifCondi}} title="Dashboard">
                 <a href="/">
                     <span class="menu_icon"><i class="material-icons">&#xE871;</i></span>
                     <span class="menu_title">Dashboard</span>
@@ -15,12 +15,22 @@
             </li>
             <li>
                 <a href="#">
-                    <span class="menu_icon"><i class="material-icons">&#xE87C;</i></span>
+                    <span class="menu_icon"><i class="material-icons">group</i></span>
                     <span class="menu_title">User</span>
                 </a>
                 <ul>
                     <li {{#ifCondi actionTab '==' 'user-manage' }}class="act_item"{{/ifCondi}}><a href="/user-manage">User Management</a></li>
                     <li {{#ifCondi actionTab '==' 'user-add'}}class="act_item"{{/ifCondi}}><a href="/user-add">User Add</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="menu_icon"><i class="material-icons">directions_run</i></span>
+                    <span class="menu_title">Tour</span>
+                </a>
+                <ul>
+                    <li {{#ifCondi actionTab '==' 'tour-manage' }}class="act_item"{{/ifCondi}}><a href="/tour-manage">Tour Management</a></li>
+                    <li {{#ifCondi actionTab '==' 'tour-add'}}class="act_item"{{/ifCondi}}><a href="/tour-add">Tour Add</a></li>
                 </ul>
             </li>
         </ul>

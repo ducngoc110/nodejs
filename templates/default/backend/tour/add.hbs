@@ -1,0 +1,268 @@
+<form id="form_validation" class="uk-form-stacked">
+    <div class="uk-grid">
+        <div class="uk-width-large-8-10">
+            <div class="md-card">
+                <div class="md-card-toolbar">
+                    <h3 class="md-card-toolbar-heading-text">INFORMATION</h3>
+                </div>
+                <div class="md-card-content large-padding">
+                    <div class="uk-grid uk-grid-divider uk-grid-medium">
+                        <div class="uk-width-medium-1-2">
+                            <div class="uk-grid uk-grid-medium">
+                                <div class="uk-width-medium-1-1">
+                                    <label>Name tour</label>
+                                    <input type="text" class="md-input" name="product_edit_name_control" value="" />
+                                </div>
+                            </div>
+                            <div class="uk-grid uk-grid-medium">
+                                <div class="uk-width-medium-1-2">
+                                    <label>Mumber days</label>
+                                    <input type="text" class="md-input" name="product_edit_name_control" value="" />
+                                </div>
+                                <div class="uk-width-medium-1-2">
+                                    <label>Number nights</label>
+                                    <input type="text" class="md-input" name="product_edit_name_control" value="" />
+                                </div>
+                            </div>
+                            <div class="uk-grid uk-grid-medium">
+                                <div class="uk-width-medium-1-2">
+                                    <label for="masked_currency">Price base</label>
+                                    <input class="md-input masked_input" id="masked_currency" type="text" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'" data-inputmask-showmaskonhover="false" />
+                                </div>
+                                <div class="uk-width-medium-1-2">
+                                    <label for="masked_currency">Price per person</label>
+                                    <input class="md-input masked_input" id="masked_currency" type="text" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'" data-inputmask-showmaskonhover="false" />
+                                </div>
+                            </div>
+                            <div class="uk-grid uk-grid-medium">
+                                <div class="uk-width-medium-1-2">
+                                    <label for="masked_currency">Video ID Youtube</label>
+                                    <input type="text" class="md-input" name="product_edit_name_control" value="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-width-medium-1-2">
+                            <div class="uk-grid uk-grid-medium">
+                                <div class="uk-width-medium-1-2">
+                                    <label class="uk-form-label">Age range</label>
+                                    <select name="product_edit_color_control" data-md-selectize>
+                                        <option value="18">18- year olds</option>
+                                        <option value="39">18 to 39 year olds</option>
+                                        <option value="40">40-49 year olds</option>
+                                        <option value="50">50-59 year olds</option>
+                                        <option value="60">60+ year olds</option>
+                                    </select>
+                                </div>
+                                <div class="uk-width-medium-1-2">
+                                    <label class="uk-form-label">Travel styles</label>
+                                    <select name="product_edit_color_control" data-md-selectize>
+                                        <option value="adventure">Adventure</option>
+                                        <option value="beach">Beach</option>
+                                        <option value="cruise">Cruise</option>
+                                        <option value="discovery">Discovery</option>
+                                        <option value="family">Family</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="uk-grid uk-grid-medium">
+                                <div class="uk-width-medium-1-2">
+                                    <label class="uk-form-label">Start in</label>
+                                    <select name="product_edit_color_control" data-md-selectize>
+                                        <option value="hanoi">Hanoi</option>
+                                        <option value="Haiphong">Haiphong</option>
+                                        <option value="Nhatrang">Nhatrang</option>
+                                        <option value="Danang">Danang</option>
+                                        <option value="Saigon">Saigon</option>
+                                    </select>
+                                </div>
+                                <div class="uk-width-medium-1-2">
+                                    <label class="uk-form-label">End in</label>
+                                    <select name="product_edit_color_control" data-md-selectize>
+                                        <option value="hanoi">Hanoi</option>
+                                        <option value="Haiphong">Haiphong</option>
+                                        <option value="Nhatrang">Nhatrang</option>
+                                        <option value="Danang">Danang</option>
+                                        <option value="Saigon">Saigon</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="uk-grid uk-grid-medium">
+                                <div class="uk-width-medium-1-1">
+                                    <label class="uk-form-label">Destinations</label>
+                                    <select name="product_edit_tags_control" multiple data-md-selectize>
+                                        <option value="hanoi">Hanoi</option>
+                                        <option value="Haiphong">Haiphong</option>
+                                        <option value="Nhatrang">Nhatrang</option>
+                                        <option value="Danang">Danang</option>
+                                        <option value="Saigon">Saigon</option>
+                                    </select>
+                                </div>
+                                <div class="uk-width-medium-1-1">
+                                    <label class="uk-form-label">Transport</label>
+                                    <select name="product_edit_tags_control" multiple data-md-selectize>
+                                        <option value="Air">Air Balloon</option>
+                                        <option value="Bike">Bike</option>
+                                        <option value="Boat">Boat</option>
+                                        <option value="Car">Car</option>
+                                        <option value="Cruise">Cruise</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-medium-1-1">
+                        <label>Description</label>
+                        <textarea class="md-input" name="product_edit_description_control" cols="30" rows="4"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md-card">
+                <div class="md-card-toolbar">
+                    <h3 class="md-card-toolbar-heading-text">INFORMATION MORE</h3>
+                </div>
+                <div class="md-card-content">
+                    <div class="uk-accordion" data-uk-accordion="{ collapse: false }">
+                        <h3 class="uk-accordion-title">Highlights</h3>
+                        <div class="uk-accordion-content">
+                            <div class="uk-grid" data-uk-grid-margin>
+                                <div class="uk-width-medium-1-1">
+                                    <div class="md-input-wrapper">
+                                        <input type="text" class="md-input" placeholder="Type title highlight...">
+                                    </div>
+                                    <div class="md-input-wrapper">
+                                        <input type="text" class="md-input" placeholder="Type title highlight...">
+                                    </div>
+                                </div>
+                                <div class="uk-width-medium-1-6">
+                                    <a class="" href="#"><i class="material-icons md-24">add_box</i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="uk-accordion-title">Itinerary</h3>
+                        <div class="uk-accordion-content">
+                            <div class="uk-grid" data-uk-grid-margin>
+                                <div class="uk-width-medium-1-1 md-card-content">
+                                    <div class="uk-accordion uk-accordion-alt help_accordion" data-slide-children="h3" data-slide-context=".md-card-content">
+                                        <h3 class="uk-accordion-title">&nbsp;
+                                        </h3>
+                                        <div class="uk-accordion-content" style="padding-top: 0px;padding-left: 48px;">
+                                            <div class="uk-width-medium-1-1 uk-margin-bottom">
+                                                <label>Title</label>
+                                                <input type="text" class="md-input" name="product_edit_name_control" value="" />
+                                            </div>
+                                            <div class="uk-width-medium-1-1">
+                                                <label>Content</label>
+                                                <textarea class="md-input" name="product_edit_description_control" cols="30" rows="4"></textarea>
+                                            </div>
+                                        </div>
+                                        <h3 class="uk-accordion-title">&nbsp;
+                                        </h3>
+                                        <div class="uk-accordion-content" style="padding-top: 0px;padding-left: 48px;">
+                                            <div class="uk-width-medium-1-1 uk-margin-bottom">
+                                                <label>Title</label>
+                                                <input type="text" class="md-input" name="product_edit_name_control" value="" />
+                                            </div>
+                                            <div class="uk-width-medium-1-1">
+                                                <label>Content</label>
+                                                <textarea class="md-input" name="product_edit_description_control" cols="30" rows="4"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-width-medium-1-6">
+                                    <a class="" href="#"><i class="material-icons md-24">add_box</i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="uk-accordion-title">Questions & Answers</h3>
+                        <div class="uk-accordion-content">
+                            <div class="uk-grid" data-uk-grid-margin>
+                                <div class="uk-width-medium-1-1 md-card-content">
+                                    <div class="uk-accordion uk-accordion-alt help_accordion" data-slide-children="h3" data-slide-context=".md-card-content">
+                                        <h3 class="uk-accordion-title">&nbsp;
+                                        </h3>
+                                        <div class="uk-accordion-content" style="padding-top: 0px;padding-left: 48px;">
+                                            <div class="uk-width-medium-1-1 uk-margin-bottom">
+                                                <label>Questions</label>
+                                                <input type="text" class="md-input" name="product_edit_name_control" value="" />
+                                            </div>
+                                            <div class="uk-width-medium-1-1">
+                                                <label>Answers</label>
+                                                <textarea class="md-input" name="product_edit_description_control" cols="30" rows="4"></textarea>
+                                            </div>
+                                        </div>
+                                        <h3 class="uk-accordion-title">&nbsp;
+                                        </h3>
+                                        <div class="uk-accordion-content" style="padding-top: 0px;padding-left: 48px;">
+                                            <div class="uk-width-medium-1-1 uk-margin-bottom">
+                                                <label>Title</label>
+                                                <input type="text" class="md-input" name="product_edit_name_control" value="" />
+                                            </div>
+                                            <div class="uk-width-medium-1-1">
+                                                <label>Content</label>
+                                                <textarea class="md-input" name="product_edit_description_control" cols="30" rows="4"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-width-medium-1-6">
+                                    <a class="" href="#"><i class="material-icons md-24">add_box</i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="uk-width-large-2-10">
+            <div class="md-card">
+                <div class="md-card-content">
+                    <div class="uk-float-right">
+                        <input type="checkbox" data-switchery checked name="product_edit_active_control" id="product_edit_active_control" />
+                    </div>
+                    <label class="uk-display-block uk-margin-small-top" for="product_edit_active_control">Active</label>
+                </div>
+            </div>
+            <div class="md-card">
+                <div class="md-card-toolbar">
+                    <h3 class="md-card-toolbar-heading-text">Featured Image</h3>
+                </div>
+                <div class="md-card-content">
+                    {{!-- <div class="uk-margin-bottom uk-text-center uk-position-relative">
+                        <img src="https://neikicao.files.wordpress.com/2017/12/hoa_bi_ngan_1.jpg?w=840" alt="" class="img_medium"/>
+                    </div> --}}
+                    <a class="atl-featured-image-js"> Chosse featured image</a>
+                </div>
+            </div>
+            <div class="md-card">
+                <div class="md-card-toolbar">
+                    <h3 class="md-card-toolbar-heading-text">Gallery Image</h3>
+                </div>
+                <div class="md-card-content">
+                    {{!-- <ul class="uk-grid uk-grid-width-small-1-3 uk-text-center">
+                        <li class="uk-position-relative">
+                            <button type="button" class="uk-modal-close uk-close uk-close-alt uk-position-absolute"></button>
+                            <img src="/assets/backend/img/ecommerce/s6_edge_1.jpg" alt="" class="img_small"/>
+                        </li>
+                        <li class="uk-position-relative">
+                            <button type="button" class="uk-modal-close uk-close uk-close-alt uk-position-absolute"></button>
+                            <img src="/assets/backend/img/ecommerce/s6_edge_2.jpg" alt="" class="img_small"/>
+                        </li>
+                        <li class="uk-position-relative">
+                            <button type="button" class="uk-modal-close uk-close uk-close-alt uk-position-absolute"></button>
+                            <img src="/assets/backend/img/ecommerce/s6_edge_3.jpg" alt="" class="img_small"/>
+                        </li>
+                    </ul> --}}
+                    <a class="atl-featured-image-js">Choose image gallery</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="/assets/backend/js/ion.rangeSlider.min.js"></script>
+<script src="/assets/backend/js/jquery.inputmask.bundle.min.js"></script>
+<script src="/assets/backend/js/forms_advanced.min.js"></script>
+<script src="/assets/backend/js/ecommerce_product_edit.min.js"></script>

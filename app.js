@@ -15,6 +15,7 @@ var database = require('./config/database');
 
 var indexRouter = require('./routes/backend/index');
 var usersRouter = require('./routes/backend/users');
+var toursRouter = require('./routes/backend/tours');
 
 var app = express();
 
@@ -53,6 +54,7 @@ app.use('/', (req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/', usersRouter);
+app.use('/', toursRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
