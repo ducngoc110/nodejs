@@ -13,16 +13,16 @@ var tourSchema = new Schema({
     night: String,
     pricebase: String,
     priceperson: String,
-    date: {type: Date, default: Date.now },
+    date: { type: Date, default: Date.now },
     meta: {
+        description: String,
         youtube: String,
         featured: String,
         gallery: String,
         transport: String,
-        description: String,
         highlight: String,
         itinerary: String,
-        qa: String,
+        question: String,
         more: String
     }
 });

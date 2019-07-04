@@ -26,5 +26,5 @@ router.get('/user-edit/:id', user_controller.get_edit);
 /* POST users action. */
 router.post('/user-add', upload.single('chosse-avatar'), user_controller.post_add);
 router.post('/user-manage-search', user_controller.post_manage_search);
-
+router.post('/user-manage-remove', user_controller.post_manage_remove);
 module.exports = router;

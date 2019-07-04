@@ -1,4 +1,4 @@
-<form id="form_validation" class="uk-form-stacked">
+<form action="/tour-add" method="POST" class="uk-form-stacked" enctype="multipart/form-data">
     <div class="uk-grid">
         <div class="uk-width-large-8-10">
             <div class="md-card">
@@ -11,33 +11,37 @@
                             <div class="uk-grid uk-grid-medium">
                                 <div class="uk-width-medium-1-1">
                                     <label>Name tour</label>
-                                    <input type="text" class="md-input" name="product_edit_name_control" value="" />
+                                    <input type="text" class="md-input" name="name" value="{{#if tour.name}}{{tour.name}}{{/if}}" />
                                 </div>
                             </div>
                             <div class="uk-grid uk-grid-medium">
                                 <div class="uk-width-medium-1-2">
-                                    <label>Mumber days</label>
-                                    <input type="text" class="md-input" name="product_edit_name_control" value="" />
+                                    <label>Number days</label>
+                                    <input type="text" class="md-input" name="day" value="{{#if tour.day}}{{tour.day}}{{/if}}" />
                                 </div>
                                 <div class="uk-width-medium-1-2">
                                     <label>Number nights</label>
-                                    <input type="text" class="md-input" name="product_edit_name_control" value="" />
+                                    <input type="text" class="md-input" name="night" value="{{#if tour.night}}{{tour.night}}{{/if}}" />
                                 </div>
                             </div>
                             <div class="uk-grid uk-grid-medium">
                                 <div class="uk-width-medium-1-2">
-                                    <label for="masked_currency">Price base</label>
-                                    <input class="md-input masked_input" id="masked_currency" type="text" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'" data-inputmask-showmaskonhover="false" />
+                                    <label>Price base</label>
+                                    <input class="md-input masked_input" type="text" name="pricebase" value="{{#if tour.pricebase}}{{tour.pricebase}}{{/if}}"
+                                        data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'"
+                                        data-inputmask-showmaskonhover="false" />
                                 </div>
                                 <div class="uk-width-medium-1-2">
-                                    <label for="masked_currency">Price per person</label>
-                                    <input class="md-input masked_input" id="masked_currency" type="text" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'" data-inputmask-showmaskonhover="false" />
+                                    <label>Price per person</label>
+                                    <input class="md-input masked_input" type="text" name="priceperson" value="{{#if tour.priceperson}}{{tour.priceperson}}{{/if}}"
+                                        data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'"
+                                        data-inputmask-showmaskonhover="false" />
                                 </div>
                             </div>
                             <div class="uk-grid uk-grid-medium">
                                 <div class="uk-width-medium-1-2">
                                     <label for="masked_currency">Video ID Youtube</label>
-                                    <input type="text" class="md-input" name="product_edit_name_control" value="" />
+                                    <input type="text" class="md-input" name="youtube" value="{{#if tour.meta.youtube}}{{tour.meta.youtube}}{{/if}}" />
                                 </div>
                             </div>
                         </div>
@@ -45,66 +49,66 @@
                             <div class="uk-grid uk-grid-medium">
                                 <div class="uk-width-medium-1-2">
                                     <label class="uk-form-label">Age range</label>
-                                    <select name="product_edit_color_control" data-md-selectize>
-                                        <option value="18">18- year olds</option>
-                                        <option value="39">18 to 39 year olds</option>
-                                        <option value="40">40-49 year olds</option>
-                                        <option value="50">50-59 year olds</option>
-                                        <option value="60">60+ year olds</option>
+                                    <select name="age" data-md-selectize>
+                                        {{#if settings.listAgeRange }}
+                                            {{#each settings.listAgeRange as |value key|}}
+                                                <option value="{{key}}" {{#ifCondi ../tour.age '==' key }}selected{{/ifCondi}}>{{value}}</option>
+                                            {{/each }}
+                                        {{/if }}
                                     </select>
                                 </div>
                                 <div class="uk-width-medium-1-2">
-                                    <label class="uk-form-label">Travel styles</label>
-                                    <select name="product_edit_color_control" data-md-selectize>
-                                        <option value="adventure">Adventure</option>
-                                        <option value="beach">Beach</option>
-                                        <option value="cruise">Cruise</option>
-                                        <option value="discovery">Discovery</option>
-                                        <option value="family">Family</option>
+                                    <label class="uk-form-label">Travel style</label>
+                                    <select name="style" data-md-selectize>
+                                        {{#if settings.listStyle }}
+                                            {{#each settings.listStyle as |value key|}}
+                                                <option value="{{key}}" {{#ifCondi ../tour.style '==' key }}selected{{/ifCondi}}>{{value}}</option>
+                                            {{/each }}
+                                        {{/if }}
                                     </select>
                                 </div>
                             </div>
                             <div class="uk-grid uk-grid-medium">
                                 <div class="uk-width-medium-1-2">
                                     <label class="uk-form-label">Start in</label>
-                                    <select name="product_edit_color_control" data-md-selectize>
-                                        <option value="hanoi">Hanoi</option>
-                                        <option value="Haiphong">Haiphong</option>
-                                        <option value="Nhatrang">Nhatrang</option>
-                                        <option value="Danang">Danang</option>
-                                        <option value="Saigon">Saigon</option>
+                                    <select name="start" data-md-selectize>
+                                        {{#if settings.listLocation }}
+                                            {{#each settings.listLocation as |value key|}}
+                                                <option value="{{key}}" {{#ifCondi ../tour.start '==' key }}selected{{/ifCondi}}>{{value}}</option>
+                                            {{/each }}
+                                        {{/if }}
                                     </select>
                                 </div>
                                 <div class="uk-width-medium-1-2">
                                     <label class="uk-form-label">End in</label>
-                                    <select name="product_edit_color_control" data-md-selectize>
-                                        <option value="hanoi">Hanoi</option>
-                                        <option value="Haiphong">Haiphong</option>
-                                        <option value="Nhatrang">Nhatrang</option>
-                                        <option value="Danang">Danang</option>
-                                        <option value="Saigon">Saigon</option>
+                                    <select name="end" data-md-selectize>
+                                        {{#if settings.listLocation }}
+                                            {{#each settings.listLocation as |value key|}}
+                                                <option value="{{key}}" {{#ifCondi ../tour.end '==' key }}selected{{/ifCondi}}>{{value}}</option>
+                                            {{/each }}
+                                        {{/if }}
                                     </select>
                                 </div>
                             </div>
                             <div class="uk-grid uk-grid-medium">
                                 <div class="uk-width-medium-1-1">
                                     <label class="uk-form-label">Destinations</label>
-                                    <select name="product_edit_tags_control" multiple data-md-selectize>
-                                        <option value="hanoi">Hanoi</option>
-                                        <option value="Haiphong">Haiphong</option>
-                                        <option value="Nhatrang">Nhatrang</option>
-                                        <option value="Danang">Danang</option>
-                                        <option value="Saigon">Saigon</option>
+                                    <select name="destination" multiple data-md-selectize>
+                                        {{#if settings.listLocation }}
+                                            {{#each settings.listLocation as |value key|}}
+                                                <option value="{{key}}" {{#if ../tour.destination}}{{#checkCondi ../tour.destination key }}selected{{/checkCondi}}{{/if}} >{{value}}</option>
+                                            {{/each }}
+                                        {{/if }}
                                     </select>
                                 </div>
                                 <div class="uk-width-medium-1-1">
                                     <label class="uk-form-label">Transport</label>
-                                    <select name="product_edit_tags_control" multiple data-md-selectize>
-                                        <option value="Air">Air Balloon</option>
-                                        <option value="Bike">Bike</option>
-                                        <option value="Boat">Boat</option>
-                                        <option value="Car">Car</option>
-                                        <option value="Cruise">Cruise</option>
+                                    <select name="transport" multiple data-md-selectize>
+                                        {{#if settings.listTransport }}
+                                            {{#each settings.listTransport as |value key|}}
+                                                <option value="{{key}}" {{#if ../tour.meta.transport}}{{#checkCondi ../tour.meta.transport key }}selected{{/checkCondi}}{{/if}} >{{value}}</option>
+                                            {{/each }}
+                                        {{/if }}
                                     </select>
                                 </div>
                             </div>
@@ -112,7 +116,7 @@
                     </div>
                     <div class="uk-width-medium-1-1">
                         <label>Description</label>
-                        <textarea class="md-input" name="product_edit_description_control" cols="30" rows="4"></textarea>
+                        <textarea class="md-input" name="description" cols="30" rows="4">{{#if tour.meta.description}}{{tour.meta.description}}{{/if}}</textarea>
                     </div>
                 </div>
             </div>
@@ -125,89 +129,89 @@
                     <div class="uk-accordion" data-uk-accordion="{ collapse: false }">
                         <h3 class="uk-accordion-title">Highlights</h3>
                         <div class="uk-accordion-content">
-                            <div class="uk-grid" data-uk-grid-margin>
-                                <div class="uk-width-medium-1-1">
-                                    <div class="md-input-wrapper">
-                                        <input type="text" class="md-input" placeholder="Type title highlight...">
+                            <div class="uk-grid tour-highlight-wrap-js">
+                                <div class="uk-width-medium-1-1 tour-highlight-list-js">
+                                {{#if tour.meta.highlight}}
+                                    {{#each tour.meta.highlight as |value key|}}
+                                    <div class="uk-input-group tour-highlight-item-js">
+                                        <div class="md-input-wrapper">
+                                            <input type="text" class="md-input" name="highlight[{{key}}]" placeholder="Type title highlight..." value="{{value}}">
+                                            <span class="md-input-bar"></span>
+                                        </div>
+                                        <span class="uk-input-group-addon">
+                                            <a class="tour-highlight-delete-js"><i class="uk-icon-remove uk-icon-small"></i></a>
+                                        </span>
                                     </div>
-                                    <div class="md-input-wrapper">
-                                        <input type="text" class="md-input" placeholder="Type title highlight...">
-                                    </div>
+                                    {{/each}}
+                                {{/if}}
                                 </div>
-                                <div class="uk-width-medium-1-6">
-                                    <a class="" href="#"><i class="material-icons md-24">add_box</i></a>
+                                <div class="uk-width-medium-1-6 uk-margin-top">
+                                    <a class="tour-highlight-add-js"><i class="material-icons md-24">add_box</i></a>
                                 </div>
                             </div>
                         </div>
                         <h3 class="uk-accordion-title">Itinerary</h3>
                         <div class="uk-accordion-content">
-                            <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-grid tour-itinerary-wrap-js">
                                 <div class="uk-width-medium-1-1 md-card-content">
-                                    <div class="uk-accordion uk-accordion-alt help_accordion" data-slide-children="h3" data-slide-context=".md-card-content">
-                                        <h3 class="uk-accordion-title">&nbsp;
-                                        </h3>
-                                        <div class="uk-accordion-content" style="padding-top: 0px;padding-left: 48px;">
-                                            <div class="uk-width-medium-1-1 uk-margin-bottom">
-                                                <label>Title</label>
-                                                <input type="text" class="md-input" name="product_edit_name_control" value="" />
-                                            </div>
-                                            <div class="uk-width-medium-1-1">
-                                                <label>Content</label>
-                                                <textarea class="md-input" name="product_edit_description_control" cols="30" rows="4"></textarea>
-                                            </div>
-                                        </div>
-                                        <h3 class="uk-accordion-title">&nbsp;
-                                        </h3>
-                                        <div class="uk-accordion-content" style="padding-top: 0px;padding-left: 48px;">
-                                            <div class="uk-width-medium-1-1 uk-margin-bottom">
-                                                <label>Title</label>
-                                                <input type="text" class="md-input" name="product_edit_name_control" value="" />
-                                            </div>
-                                            <div class="uk-width-medium-1-1">
-                                                <label>Content</label>
-                                                <textarea class="md-input" name="product_edit_description_control" cols="30" rows="4"></textarea>
-                                            </div>
-                                        </div>
+                                    <div class="uk-accordion uk-accordion-alt help_accordion tour-itinerary-list-js" data-slide-children="h3"
+                                        data-slide-context=".md-card-content">
+                                        {{#if tour.meta.itinerary}}
+                                            {{#each tour.meta.itinerary}}
+                                                <h3 class="uk-accordion-title">{{this.title}}</h3>
+                                                    <div class="uk-accordion-content" style="padding-top: 0px;padding-left: 48px;">
+                                                        <div class="uk-width-medium-1-1 uk-margin-bottom">
+                                                            <div class="md-input-wrapper md-input-filled">
+                                                                <label>Title</label>
+                                                                <input type="text" class="md-input" name="itinerary[{{@key}}][title]" value="{{this.title}}" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="uk-width-medium-1-1">
+                                                            <div class="md-input-wrapper md-input-filled">
+                                                                <label>Content</label>
+                                                                <textarea class="md-input" name="itinerary[{{@key}}][content]" cols="30"
+                                                                rows="4">{{this.content}}</textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            {{/each}}
+                                        {{/if}}
                                     </div>
                                 </div>
                                 <div class="uk-width-medium-1-6">
-                                    <a class="" href="#"><i class="material-icons md-24">add_box</i></a>
+                                    <a class="tour-itinerary-add-js"><i class="material-icons md-24">add_box</i></a>
                                 </div>
                             </div>
                         </div>
                         <h3 class="uk-accordion-title">Questions & Answers</h3>
                         <div class="uk-accordion-content">
-                            <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-grid tour-question-wrap-js">
                                 <div class="uk-width-medium-1-1 md-card-content">
-                                    <div class="uk-accordion uk-accordion-alt help_accordion" data-slide-children="h3" data-slide-context=".md-card-content">
-                                        <h3 class="uk-accordion-title">&nbsp;
-                                        </h3>
-                                        <div class="uk-accordion-content" style="padding-top: 0px;padding-left: 48px;">
-                                            <div class="uk-width-medium-1-1 uk-margin-bottom">
-                                                <label>Questions</label>
-                                                <input type="text" class="md-input" name="product_edit_name_control" value="" />
-                                            </div>
-                                            <div class="uk-width-medium-1-1">
-                                                <label>Answers</label>
-                                                <textarea class="md-input" name="product_edit_description_control" cols="30" rows="4"></textarea>
-                                            </div>
-                                        </div>
-                                        <h3 class="uk-accordion-title">&nbsp;
-                                        </h3>
-                                        <div class="uk-accordion-content" style="padding-top: 0px;padding-left: 48px;">
-                                            <div class="uk-width-medium-1-1 uk-margin-bottom">
-                                                <label>Title</label>
-                                                <input type="text" class="md-input" name="product_edit_name_control" value="" />
-                                            </div>
-                                            <div class="uk-width-medium-1-1">
-                                                <label>Content</label>
-                                                <textarea class="md-input" name="product_edit_description_control" cols="30" rows="4"></textarea>
-                                            </div>
-                                        </div>
+                                    <div class="uk-accordion uk-accordion-alt help_accordion tour-question-list-js" data-slide-children="h3"
+                                        data-slide-context=".md-card-content">
+                                        {{#if tour.meta.question}}
+                                            {{#each tour.meta.question}}
+                                                <h3 class="uk-accordion-title">{{this.question}}</h3>
+                                                <div class="uk-accordion-content" style="padding-top: 0px;padding-left: 48px;">
+                                                    <div class="uk-width-medium-1-1 uk-margin-bottom">
+                                                        <div class="md-input-wrapper md-input-filled">
+                                                            <label>Question</label>
+                                                            <input type="text" class="md-input" name="question[{{@key}}][question]" value="{{this.question}}" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="uk-width-medium-1-1">
+                                                        <div class="md-input-wrapper md-input-filled">
+                                                            <label>Answer</label>
+                                                            <textarea class="md-input" name="question[{{@key}}][answer]" cols="30" rows="4">{{this.answer}}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {{/each}}
+                                        {{/if}}
                                     </div>
                                 </div>
                                 <div class="uk-width-medium-1-6">
-                                    <a class="" href="#"><i class="material-icons md-24">add_box</i></a>
+                                    <a class="tour-question-add-js"><i class="material-icons md-24">add_box</i></a>
                                 </div>
                             </div>
                         </div>
@@ -220,9 +224,9 @@
             <div class="md-card">
                 <div class="md-card-content">
                     <div class="uk-float-right">
-                        <input type="checkbox" data-switchery checked name="product_edit_active_control" id="product_edit_active_control" />
+                        <input type="checkbox" data-switchery name="status" id="tour_active_control" {{#ifCondi tour.status '==' 'on' }}checked{{/ifCondi}} />
                     </div>
-                    <label class="uk-display-block uk-margin-small-top" for="product_edit_active_control">Active</label>
+                    <label class="uk-display-block uk-margin-small-top" for="tour_active_control">Active</label>
                 </div>
             </div>
             <div class="md-card">
@@ -230,10 +234,14 @@
                     <h3 class="md-card-toolbar-heading-text">Featured Image</h3>
                 </div>
                 <div class="md-card-content">
-                    {{!-- <div class="uk-margin-bottom uk-text-center uk-position-relative">
-                        <img src="https://neikicao.files.wordpress.com/2017/12/hoa_bi_ngan_1.jpg?w=840" alt="" class="img_medium"/>
-                    </div> --}}
-                    <a class="atl-featured-image-js"> Chosse featured image</a>
+                    {{#if tour.meta.featured}}
+                    <div class="uk-margin-bottom uk-text-center uk-position-relative">
+                        <button type="button" class="uk-modal-close uk-close uk-close-alt uk-position-absolute tour-featured-delete-js"></button>
+                        <img src="{{#if tour.meta.featured}}/uploads/tour/{{tour.meta.featured}}{{else}}/assets/backend/img/blank.png{{/if}}"  class="img_medium" />
+                        <input type="hidden" name="featured_hidden" value="{{#if tour.meta.featured}}{{tour.meta.featured}}{{/if}}">
+                    </div>
+                    {{/if}}
+                    <input type="file" name="featured">
                 </div>
             </div>
             <div class="md-card">
@@ -241,28 +249,44 @@
                     <h3 class="md-card-toolbar-heading-text">Gallery Image</h3>
                 </div>
                 <div class="md-card-content">
-                    {{!-- <ul class="uk-grid uk-grid-width-small-1-3 uk-text-center">
-                        <li class="uk-position-relative">
-                            <button type="button" class="uk-modal-close uk-close uk-close-alt uk-position-absolute"></button>
-                            <img src="/assets/backend/img/ecommerce/s6_edge_1.jpg" alt="" class="img_small"/>
-                        </li>
-                        <li class="uk-position-relative">
-                            <button type="button" class="uk-modal-close uk-close uk-close-alt uk-position-absolute"></button>
-                            <img src="/assets/backend/img/ecommerce/s6_edge_2.jpg" alt="" class="img_small"/>
-                        </li>
-                        <li class="uk-position-relative">
-                            <button type="button" class="uk-modal-close uk-close uk-close-alt uk-position-absolute"></button>
-                            <img src="/assets/backend/img/ecommerce/s6_edge_3.jpg" alt="" class="img_small"/>
-                        </li>
-                    </ul> --}}
-                    <a class="atl-featured-image-js">Choose image gallery</a>
+                    {{#if tour.meta.gallery}}
+                    <ul class="uk-grid uk-grid-width-small-1-3 uk-text-center uk-margin-bottom">
+                        {{#each tour.meta.gallery}}
+                            <li class="uk-position-relative">
+                                <button type="button" class="uk-modal-close uk-close uk-close-alt uk-position-absolute tour-gallery-delete-js"></button>
+                                <img src="/uploads/tour/{{this}}" class="img_small" />
+                                <input type="hidden" name="gallery_hidden[]" value="{{this}}">
+                            </li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    <input type="file" name="gallery" multiple>
                 </div>
+            </div>
+            <div class="md-card-content uk-margin-top">
+                <input type="hidden" name="_id" value="{{#if tour._id}}{{tour._id}}{{/if}}">
+                <button type="submit" class="md-btn md-btn-primary">Save</button>
             </div>
         </div>
     </div>
 </form>
 
-<script src="/assets/backend/js/ion.rangeSlider.min.js"></script>
-<script src="/assets/backend/js/jquery.inputmask.bundle.min.js"></script>
-<script src="/assets/backend/js/forms_advanced.min.js"></script>
-<script src="/assets/backend/js/ecommerce_product_edit.min.js"></script>
+
+<div class="uk-notify uk-notify-bottom-right">
+    {{#if hasErros }}
+        {{#each errors }}
+        <div class="uk-notify-message uk-notify-message-danger atl-notify">
+            <div>{{ this }}</div>
+        </div>
+        {{/each }}
+    {{/if }}
+    {{#if hasSuccess }}
+        {{#each success}}
+        <div class="uk-notify-message uk-notify-message-success atl-notify">
+            <div>{{ this }}</div>
+        </div>
+        {{/each }}
+    {{/if }}
+</div>
+
+<script src="/js/backend/tour/atl-backend-tour.js"></script>

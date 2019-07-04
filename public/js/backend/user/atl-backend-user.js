@@ -38,7 +38,20 @@ $(document).ready(function(){
         },
 
         manageRemove () {
-
+            $('.uk-table').on('click', '.atl-manage-user-delete', function(e){
+                let item = $(e.currentTarget);
+                let id   = item.attr('data-id');
+                let data = { id };
+                altair_helpers.content_preloader_show();
+                $.post('/user-manage-remove', data, (result) => {
+                    if (result) {
+                        altair_helpers.content_preloader_hide();
+                        item.closest('tr').remove();
+                        UIkit.modal.alert('Delete Success!');
+                    }
+                });
+                return false;
+            })
         },
     };
 

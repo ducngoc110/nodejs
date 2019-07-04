@@ -1,4 +1,3 @@
-
 var settings = require('../../config/settings');
 var User = require('../../models/user');
 
@@ -135,7 +134,16 @@ var user_controller = {
                 );
             }
         });
-    }
+    },
+    post_manage_remove:(req, res, next) => {
+        let status = true,
+        id = req.body.id;
+        User.findByIdAndRemove(id, (err) => {
+            if (err) { status = false; }
+            let data = { status };
+            res.json(data);
+        });
+    },
 }
 
 module.exports = user_controller;

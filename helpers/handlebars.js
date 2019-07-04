@@ -15,6 +15,9 @@ var register = (Handlebars) => {
                 default:
                     return options.inverse(this);
             }
+        },
+        checkCondi : (v1, v2, options) => {
+            return (v1.includes(v2)) ? options.fn(this) : options.inverse(this);
         }
     }
 
